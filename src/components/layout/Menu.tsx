@@ -3,20 +3,17 @@ import {Nav} from 'react-bootstrap'
 
 let MenuContents = [
     {
-        'name': '시작 합니다.'
+        'name': '보러 가기',
+        'to': '/contents'
     },
     {
-        'name': '이것은 무엇인가 할 겁니다.'
+        'name': '만들러 가기',
+        'to': '/123'
     }
 ];
 
-interface MenuProps {
-    hasmenu?: boolean
-}
-
 const MenuStyle = {
     'display': 'flex',
-    'align-items': 'stretch',
     'width': '250px',
     'top': '0',
     'left': '0',
@@ -27,16 +24,39 @@ const MenuStyle = {
     'transition': 'all 0.3s'
 };
 
+const MenuFontStyle = {
+    'color': '#fff',
+    'fontSize': '0.9em',
+    'paddingLeft': '30px'
+};
+
+const MenuComponentStyle = {
+    'padding': '20px 0',
+    'border-bottom': '1px solid #47748b'
+};
+
 const Menu: React.FC = () => {
     let MenuLayout = MenuContents.map((data) => {
-        return (<Nav.Link herf="/">{data.name}</Nav.Link>)
+        return (
+            <ul className="list-unstyled" style={MenuComponentStyle}>
+                <li>
+                        <a href={data.to} style={MenuFontStyle}>{data.name}</a>
+                </li>
+            </ul>
+        )
     });
 
     return (
-        <Nav defaultActiveKey="/" className='align-items-lg-stretch bg-info' style={MenuStyle}>
-            <Nav.Link href="/">Menu</Nav.Link>
-            {MenuLayout}
-        </Nav>
+        <div style={MenuStyle}>
+            <Nav defaultActiveKey="/" className="flex-column">
+                <div className="container text-center pt-4 pb-2">
+                    <h3>INTERCON</h3>
+                </div>
+                <div className='container text-left'>
+                    {MenuLayout}
+                </div>
+            </Nav>
+        </div>
     );
 };
 

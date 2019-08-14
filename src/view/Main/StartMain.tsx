@@ -1,7 +1,7 @@
 import React from 'react';
 import {Nav} from 'react-bootstrap'
 
-const ContentList: React.FC = () => {
+const StartMain: React.FC = () => {
     return (
         <div className="container">
             <Nav defaultActiveKey="/" className="flex-column">
@@ -16,4 +16,4 @@ const ContentList: React.FC = () => {
     );
 };
 
-export default ContentList;
+export default StartMain;
